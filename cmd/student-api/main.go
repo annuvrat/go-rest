@@ -31,7 +31,9 @@ server:=http.Server{
 	Addr: cfg.Addr,
 	Handler: router,
 }
-fmt.Println("server started")
+
+slog.Info("server started", slog.String("addr", cfg.Addr))
+fmt.Printf("server started %s", cfg.Addr)
 
 
 done:= make(chan os.Signal, 1)
@@ -57,4 +59,6 @@ err :=server.Shutdown(ctx)
 if err!= nil{
 	slog.Error("failed to shutdown server",slog.String("error",err.Error()))
 }
+
+slog.Info("server shutdown successfully")
 }
