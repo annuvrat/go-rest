@@ -12,6 +12,7 @@ import (
 	"time"
 
 	"github.com/annuvrat/go-rest/internal/config"
+	student "github.com/annuvrat/go-rest/internal/http/handlers"
 )
 
 
@@ -23,9 +24,7 @@ func main(){
 //router setup
 router :=http.NewServeMux()
 
-router.HandleFunc("GET /",func(w http.ResponseWriter,r *http.Request){
-	w.Write([]byte("welcome to students api"))
-})
+router.HandleFunc("POST /api/students",student.New())
 
 server:=http.Server{
 	Addr: cfg.Addr,
