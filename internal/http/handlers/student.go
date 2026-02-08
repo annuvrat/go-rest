@@ -23,11 +23,15 @@ func New()http.HandlerFunc{
 			response.WriteJson(w,http.StatusBadRequest,response.GeneralError(fmt.Errorf("empty body")))
 			return 
 		}
+		
+        if err!= nil{
 
-        // if err!= nil{
+			response.WriteJson(w, http.StatusBadRequest,response.GeneralError(err))
 
-		// }
-{}
+			return 
+
+		}
+
 		response.WriteJson(w,http.StatusCreated,map[string]string{"success":"ok"})
 	// w.Write([]byte("welcome to students api"))
 }
