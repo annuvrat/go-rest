@@ -18,7 +18,7 @@ import (
 
 func main(){
 //load config
-	cfg:= config.MustLoad()
+cfg:= config.MustLoad()
 
 
 //router setup

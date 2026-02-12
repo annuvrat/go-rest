@@ -2,10 +2,14 @@ package config
 
 import (
 	"flag"
+	"log/slog"
+
+	// "fmt"
 	"log"
 	"os"
 
 	"github.com/ilyakaznacheev/cleanenv"
+	"github.com/joho/godotenv"
 )
 
 type HttpServer struct{
@@ -25,10 +29,10 @@ type Config struct {
 
 
 func MustLoad()*Config{
+	godotenv.Load()
 	var configPath string
 configPath=os.Getenv("CONFIG_PATH")
-
-
+slog.Info("using config path", slog.String("path", configPath))
 if configPath==""{
 	flags:= flag.String("config","","path to configuration file")
 
