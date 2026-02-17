@@ -43,7 +43,7 @@ func GeneralError(err error)Response{
 }
 
 
-func ValidationError(errs validator.ValidationErrors)Response{
+func 	ValidationError(errs validator.ValidationErrors)Response{
 	var errMsgs[]string
 
 	for _,err:= range errs{
