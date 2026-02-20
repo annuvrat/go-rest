@@ -38,7 +38,7 @@ if configPath==""{
 
 	flag.Parse()
 
-	configPath=*flags
+	configPath=*flags 
 
 	if configPath==""{
 		log.Fatal("config path is not set")
